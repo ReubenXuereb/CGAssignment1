@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "219347054583",
+    "firebase_url": "https://cgassignment1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cgassignment1",
+    "storage_bucket": "cgassignment1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219347054583:android:dfefe54683b512c63b48f2",
+        "android_client_info": {
+          "package_name": "Connected.Gaming.Assignment1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219347054583-1tt9acnhrnm663hos3hkern6v0br765m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARPYSO-iyAG3qCEimfhkmW3NQE1MDUj14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219347054583-1tt9acnhrnm663hos3hkern6v0br765m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
