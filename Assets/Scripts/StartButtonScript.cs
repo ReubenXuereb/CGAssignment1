@@ -13,12 +13,15 @@ public class StartButtonScript : MonoBehaviour
 
     string lobby = "1";
     string username;
+    string pos;
+    string timeCreated;
+    string uid;
 
     public void OnStartButton()
     {
             username = usernameField.text;
             FirebaseConfig firebase = new FirebaseConfig();
-            firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "square", "20", "right now", "testing"));
+            firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", "20", "right now", "testing"));
             SceneManager.LoadScene("Game");
             print("uploading");
     }

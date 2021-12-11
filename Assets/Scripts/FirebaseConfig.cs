@@ -14,15 +14,15 @@ public class FirebaseConfig : MonoBehaviour
     {
         dr = FirebaseDatabase.DefaultInstance.RootReference;
         string json = JsonUtility.ToJson(player);
-        dr.Child("Lobby " + lobbyNum).Child("Player " + playerNum).SetRawJsonValueAsync(json);
+        dr.Child("Objects").Child("Lobby " + lobbyNum).Child("Player " + playerNum).SetRawJsonValueAsync(json);
         print("wokring");
 
     }
 
-    public void GetImage(string url,  img)
+    public void GetImage()
     {
         FirebaseStorage storage = FirebaseStorage.DefaultInstance;
-        StorageReference sr = storage.GetReferenceFromUrl(url);
+        StorageReference sr = storage.GetReferenceFromUrl("gs://cgassignment1.appspot.com");
 
         sr.GetBytesAsync(long.MaxValue).ContinueWithOnMainThread(task =>
         {
@@ -34,7 +34,8 @@ public class FirebaseConfig : MonoBehaviour
             {
                 Texture2D texture = new Texture2D(1, 1);
                 texture.LoadImage(task.Result);
-                img.texture = texture;
+                Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                GetComponent<SpriteRenderer>().sprite = sprite;
             }
         });
     }
