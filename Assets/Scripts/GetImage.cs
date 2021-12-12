@@ -50,6 +50,8 @@ public class GetImage : MonoBehaviour
                 Player1.gameObject.transform.localScale = new Vector2(0.3f, 0.3f);
                 Player1.transform.position = new Vector2(-3f, 0f);
                 Player1.AddComponent<SpriteRenderer>().sprite = sprite;
+                Player1.AddComponent<Rigidbody2D>().gravityScale = 0;
+                Player1.AddComponent<PlayerMovment>();
                 Player1.name = "Player 1";
                 print("hawn wasalt zgur wkoll");
                 Debug.Log("Finished downloading!");
