@@ -19,7 +19,7 @@ public class FirebaseConfig : MonoBehaviour
 
     }
 
-    public void GetImage()
+   /* public void GetImage()
     {
         FirebaseStorage storage = FirebaseStorage.DefaultInstance;
         StorageReference sr = storage.GetReferenceFromUrl("gs://cgassignment1.appspot.com");
@@ -38,5 +38,5 @@ public class FirebaseConfig : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = sprite;
             }
         });
-    }
+    }*/
 }

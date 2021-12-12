@@ -13,7 +13,7 @@ public class StartButtonScript : MonoBehaviour
 
     string lobby = "1";
     string username;
-    string pos;
+    Vector2 pos = new Vector2(0f, 5f);
     string timeCreated;
     string uid;
 
@@ -21,7 +21,7 @@ public class StartButtonScript : MonoBehaviour
     {
             username = usernameField.text;
             FirebaseConfig firebase = new FirebaseConfig();
-            firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", "20", "right now", "testing"));
+            firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", pos, "right now", "testing", ""));
             SceneManager.LoadScene("Game");
             print("uploading");
     }
