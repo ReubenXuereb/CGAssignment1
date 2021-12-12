@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(Distance());
+        Distance();
     }
 
     IEnumerator StartGame()
@@ -38,15 +38,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-     IEnumerator Distance()
-    {
-        yield return new WaitForSeconds(1.5f);
+    private void Distance()
+    { 
         Debug.Log(totalDist);
         Debug.Log(totalPoints);
         Debug.Log(prevLocation);
-        totalDist += Vector2.Distance(transform.position, prevLocation);
-        prevLocation = transform.position;
-        totalPoints = (int)Math.Round(totalDist / 10);
+        totalDist += Vector2.Distance(GameObject.Find("Player 1").transform.position, prevLocation);
+        prevLocation = GameObject.Find("Player 1").transform.position;
+        totalPoints = (int)Mathf.Round(totalDist / 10);
         GameObject.Find("Player1").GetComponent<TMP_Text>().text = "P1: " + totalPoints.ToString();
         print("Hello");
     }

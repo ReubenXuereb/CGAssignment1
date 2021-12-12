@@ -23,7 +23,7 @@ public class GetImage : MonoBehaviour
         StorageReference sr = storage.GetReferenceFromUrl("gs://cgassignment1.appspot.com/");
         StorageReference img = sr.Child("BlueCircle.png");
         StartCoroutine(GetImages(img));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
     }
     
     IEnumerator GetImages(StorageReference reference)
@@ -52,6 +52,7 @@ public class GetImage : MonoBehaviour
                 Player1.AddComponent<SpriteRenderer>().sprite = sprite;
                 Player1.AddComponent<Rigidbody2D>().gravityScale = 0;
                 Player1.AddComponent<PlayerMovment>();
+                //Player1.AddComponent<GameManager>();
                 Player1.name = "Player 1";
                 print("hawn wasalt zgur wkoll");
                 Debug.Log("Finished downloading!");
