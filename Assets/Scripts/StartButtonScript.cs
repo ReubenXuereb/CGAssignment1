@@ -21,7 +21,8 @@ public class StartButtonScript : MonoBehaviour
             username = usernameField.text;
             FirebaseConfig firebase = new FirebaseConfig();
             firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", pos, ""));
-            StartCoroutine(Player2Joined());
+        StartCoroutine(Player2Joined());
+        SceneManager.LoadScene("Game");
             print("uploading");
     }
 
@@ -35,7 +36,10 @@ public class StartButtonScript : MonoBehaviour
                 {
                     GameManager.player = "1";
                     GameManager.lobbyNum = lobby;
-                    SceneManager.LoadScene("Game");
+                }
+                else
+                {
+                    print("waiting for player 2");
                 }
             });
 

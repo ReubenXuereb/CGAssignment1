@@ -21,8 +21,10 @@ public class GetImage : MonoBehaviour
     {
         FirebaseStorage storage = FirebaseStorage.DefaultInstance;
         StorageReference sr = storage.GetReferenceFromUrl("gs://cgassignment1.appspot.com/");
-        StorageReference img = sr.Child("BlueCircle.png");
-        StartCoroutine(GetImages(img));
+        StorageReference img1 = sr.Child("BlueCircle.png");
+        StorageReference img2 = sr.Child("RedSquare.png");
+        StartCoroutine(GetImages(img1));
+        StartCoroutine(GetRedImage(img2));
         yield return new WaitForSeconds(0f);
     }
     
@@ -59,5 +61,37 @@ public class GetImage : MonoBehaviour
             }
         });
 
+    }
+
+    IEnumerator GetRedImage(StorageReference reference)
+    {
+        yield return new WaitForSeconds(0f);
+        const long maxAllowedSize = 1 * 1024 * 1024;
+        reference.GetBytesAsync(maxAllowedSize).ContinueWithOnMainThread(task => {
+            if (task.IsFaulted || task.IsCanceled)
+            {
+                Debug.LogException(task.Exception);
+            }
+            else
+            {
+
+                byte[] fileContents = task.Result;
+
+
+                Texture2D texture = new Texture2D(1024, 1024);
+                texture.LoadImage(fileContents);
+
+               
+                Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                GameObject Player2 = new GameObject();
+                Player2.gameObject.transform.localScale = new Vector2(0.3f, 0.3f);
+                Player2.transform.position = new Vector2(3f, 0f);
+                Player2.AddComponent<SpriteRenderer>().sprite = sprite;
+                Player2.AddComponent<Rigidbody2D>().gravityScale = 0;
+                Player2.AddComponent<PlayerMovment>();
+                //Player1.AddComponent<GameManager>();
+                Player2.name = "Player 2";
+            }
+        });
     }
 }

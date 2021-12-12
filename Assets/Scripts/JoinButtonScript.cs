@@ -34,6 +34,10 @@ public class JoinButtonScript : MonoBehaviour
                 GameManager.player = "2";
                 SceneManager.LoadScene("Game");
             }
+            else
+            {
+                print("did not work");
+            }
         });
     }
 }
