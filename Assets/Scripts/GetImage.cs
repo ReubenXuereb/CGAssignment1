@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Database;
 using Firebase.Storage;
 using Firebase.Extensions;
 
 public class GetImage : MonoBehaviour
 {
+
+
+
     void Start()
     {
         
@@ -42,10 +46,11 @@ public class GetImage : MonoBehaviour
 
                 print("hawn wasalt zgur");
                 Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
-                GameObject image = new GameObject("Player 1");
-                gameObject.gameObject.transform.localScale = new Vector2(0.3f, 0.3f);
-                gameObject.transform.position = new Vector2(0f, 0f);
-                gameObject.AddComponent<SpriteRenderer>().sprite = sprite;
+                GameObject Player1 = new GameObject();
+                Player1.gameObject.transform.localScale = new Vector2(0.3f, 0.3f);
+                Player1.transform.position = new Vector2(-3f, 0f);
+                Player1.AddComponent<SpriteRenderer>().sprite = sprite;
+                Player1.name = "Player 1";
                 print("hawn wasalt zgur wkoll");
                 Debug.Log("Finished downloading!");
             }

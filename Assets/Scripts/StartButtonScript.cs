@@ -12,7 +12,7 @@ public class StartButtonScript : MonoBehaviour
     [SerializeField] private TMP_InputField usernameField;
 
     string lobby = "1";
-    string username;
+    public string username;
     Vector2 pos = new Vector2(0f, 5f);
     string timeCreated;
     string uid;
