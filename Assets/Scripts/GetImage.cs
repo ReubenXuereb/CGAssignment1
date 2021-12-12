@@ -28,7 +28,7 @@ public class GetImage : MonoBehaviour
     
     IEnumerator GetImages(StorageReference reference)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0f);
         const long maxAllowedSize = 1 * 1024 * 1024;
         reference.GetBytesAsync(maxAllowedSize).ContinueWithOnMainThread(task => {
             if (task.IsFaulted || task.IsCanceled)
