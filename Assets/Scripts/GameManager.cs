@@ -11,6 +11,9 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static string player = "1";
+    public static string lobbyNum = "1";
     
     FirebaseConfig firebase = new FirebaseConfig();
     public static float totalDist;

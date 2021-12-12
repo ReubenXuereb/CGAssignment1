@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PlayerDetails
 {
@@ -11,13 +12,18 @@ public class PlayerDetails
     public string uID;
     public string score;
 
-    public PlayerDetails(string username, string shape, Vector2 pos, string dateTimeCreated, string uID, string score)
+    public PlayerDetails(string username, string shape, Vector2 pos, string score)
     {
         this.username = username;
         this.shape = shape;
         this.pos = pos;
-        this.dateTimeCreated = dateTimeCreated;
-        this.uID = uID;
+        DateTime time = DateTime.Now;
+        dateTimeCreated = time.ToString();
+
+        Guid guid = Guid.NewGuid();
+        string id = guid.ToString();
+        uID = id;
+       
         this.score = score;
     }
 
