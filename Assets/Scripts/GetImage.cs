@@ -42,8 +42,11 @@ public class GetImage : MonoBehaviour
 
                 print("hawn wasalt zgur");
                 Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                GameObject image = new GameObject("Player 1");
+                gameObject.gameObject.transform.localScale = new Vector2(0.3f, 0.3f);
+                gameObject.transform.position = new Vector2(0f, 0f);
+                gameObject.AddComponent<SpriteRenderer>().sprite = sprite;
                 print("hawn wasalt zgur wkoll");
-                GetComponent<SpriteRenderer>().sprite = sprite;
                 Debug.Log("Finished downloading!");
             }
         });

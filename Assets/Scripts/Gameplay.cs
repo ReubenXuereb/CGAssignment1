@@ -19,5 +19,10 @@ public class Gameplay : MonoBehaviour
       
     }
 
+    public void PlayerMovment()
+    {
+
+    }
+
 
 }
