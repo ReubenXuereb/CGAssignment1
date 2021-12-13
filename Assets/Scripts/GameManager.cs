@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void dontDestroyGM()
     {
         int numberOfGameManagers = FindObjectsOfType<GameManager>().Length;
+       // int numberOfGetImage = FindObjectsOfType<GetImage>().Length;
         if (numberOfGameManagers > 1)
         {
             Destroy(gameObject);
@@ -141,11 +142,6 @@ public class GameManager : MonoBehaviour
         {
             GameObject.Find("WinnerText").GetComponent<TMP_Text>().text = winnerP2;
         }
-    }
-
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene("Game");
     }
 
    /* private void Distance2()

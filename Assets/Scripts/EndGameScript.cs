@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class EndGameScript : MonoBehaviour
 {
-
-
-    public void EndGame() {
-        if (GameObject.Find("Player 1").GetComponent<PlayerMovment>().p1Score == 2)
+    public void PlayAgain()
+    {
+        if(SceneManager.GetActiveScene().name == "End")
         {
-            SceneManager.LoadScene("");
+            SceneManager.LoadScene("Game");
         }
-     }
+    }
+
 }
