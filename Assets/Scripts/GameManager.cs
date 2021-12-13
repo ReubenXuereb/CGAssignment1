@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public static string player = "1";
     public static string lobbyNum = "1";
 
-    PlayerMovment pm;
 
     /* public static float totalDistP1;
      public static int totalPointsP1;
@@ -24,12 +23,12 @@ public class GameManager : MonoBehaviour
      public static float totalDistP2;
      public static int totalPointsP2;
      public Vector2 prevLocationP2;*/
-    public int player1Moves = 0;
-    public int player2Moves = 0;
-    public int totalPointsP1 = 0;
-    public int totalPointsP2 = 0;
+
     public string winnerP1 = "Player 1 is the winner";
     public string winnerP2 = "Player 2 is the winner";
+    public bool p1Winner = false;
+    public bool p2Winner = false;
+
 
     private void Awake()
     {
@@ -38,8 +37,14 @@ public class GameManager : MonoBehaviour
         /*Debug.Log(totalDist);
         Debug.Log(totalPoints);
         Debug.Log(prevLocation);*/
-
     }
+
+    private void Start()
+    {
+        GameObject player1 = GameObject.Find("Player 1");
+        GameObject player2 = GameObject.Find("Player 2");
+    }
+
     private void dontDestroyGM()
     {
         int numberOfGameManagers = FindObjectsOfType<GameManager>().Length;
@@ -90,6 +95,8 @@ public class GameManager : MonoBehaviour
             print("mhux nahdem");
         }*/
 
+
+        //Mecahnics of point system
         if(GameObject.Find("Player 1").GetComponent<PlayerMovment>().p1NumOfMoves >= 10)
         {
             GameObject.Find("Player 1").GetComponent<PlayerMovment>().p1NumOfMoves = 0;
@@ -104,20 +111,41 @@ public class GameManager : MonoBehaviour
             GameObject.Find("Player2").GetComponent<TMP_Text>().text = "P2: " + GameObject.Find("Player 2").GetComponent<PlayerMovment>().p2Score.ToString();
         }
 
-        if (GameObject.Find("Player 1").GetComponent<PlayerMovment>().p1Score == 2)
+        if (GameObject.Find("Player 1").GetComponent<PlayerMovment>().p1Score == 1)
         {
+            p1Winner = true;
             SceneManager.LoadScene("End");
             Debug.Log(winnerP1);
-            GameObject.FindWithTag("WinnerText").GetComponent<TMP_Text>().text = winnerP1;
+            StartCoroutine(ShowWinnerText());
         }
 
-        if (GameObject.Find("Player 2").GetComponent<PlayerMovment>().p2Score == 2)
+        if (GameObject.Find("Player 2").GetComponent<PlayerMovment>().p2Score == 10)
         {
+            p2Winner = true;
             SceneManager.LoadScene("End");
             Debug.Log(winnerP2);
-            GameObject.FindWithTag("WinnerText").GetComponent<TMP_Text>().text = winnerP2;
+            StartCoroutine(ShowWinnerText());
+        }
+    }
+
+   IEnumerator ShowWinnerText()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if ((SceneManager.GetActiveScene().name == "End") && (p1Winner == true))
+        {
+            GameObject.Find("WinnerText").GetComponent<TMP_Text>().text = winnerP1;
         }
 
+        if ((SceneManager.GetActiveScene().name == "End") && (p2Winner == true))
+        {
+            GameObject.Find("WinnerText").GetComponent<TMP_Text>().text = winnerP2;
+        }
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Game");
     }
 
    /* private void Distance2()

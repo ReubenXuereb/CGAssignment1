@@ -13,10 +13,10 @@ public class JoinButtonScript : MonoBehaviour
 
     string lobby = "1";
     public string username;
-    Vector2 pos = new Vector2(0f, 5f);
+    Vector2 pos = new Vector2(3f, 0f);
 
     FirebaseConfig config;
-    // Start is called before the first frame update
+    
     void Start()
     {
         config = new FirebaseConfig();
@@ -29,7 +29,7 @@ public class JoinButtonScript : MonoBehaviour
         {
             if(task.Result.Value != null)
             {
-                config.SendPlayerData(lobby, "2", new PlayerDetails(username, "Red Square", pos, ""));
+                config.SendPlayerData(lobby, "2", new PlayerDetails(username, "Red Square", pos));
                 GameManager.lobbyNum = lobby;
                 GameManager.player = "2";
                 SceneManager.LoadScene("Game");

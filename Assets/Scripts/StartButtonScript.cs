@@ -14,16 +14,16 @@ public class StartButtonScript : MonoBehaviour
 
     string lobby = "1";
     public string username;
-    Vector2 pos = new Vector2(0f, 5f);
+    Vector2 pos = new Vector2(-3f, 0f);
 
     public void OnStartButton()
     {
-            username = usernameField.text;
-            FirebaseConfig firebase = new FirebaseConfig();
-            firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", pos, ""));
+        username = usernameField.text;
+        FirebaseConfig firebase = new FirebaseConfig();
+        firebase.SendPlayerData(lobby, "1", new PlayerDetails(username, "Blue Circle", pos));
         StartCoroutine(Player2Joined());
         SceneManager.LoadScene("Game");
-            print("uploading");
+        print("uploading");
     }
 
     IEnumerator Player2Joined()

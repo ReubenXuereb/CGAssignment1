@@ -625,10 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f60649c373113f469d6e55b3df3edd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Moves: 0
-  player2Moves: 0
-  totalPointsP1: 0
-  totalPointsP2: 0
+  winnerP1: Player 1 is the winner
+  winnerP2: Player 2 is the winner
 --- !u!1 &1224428563
 GameObject:
   m_ObjectHideFlags: 0

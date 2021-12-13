@@ -420,12 +420,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f60649c373113f469d6e55b3df3edd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Moves: 0
-  player2Moves: 0
-  totalPointsP1: 0
-  totalPointsP2: 0
   winnerP1: Player 1 is the winner
   winnerP2: Player 2 is the winner
+  p1Winner: 0
+  p2Winner: 0
 --- !u!4 &1020980494
 Transform:
   m_ObjectHideFlags: 0
@@ -522,7 +520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138966979}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1020980493}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138966979
 MonoBehaviour:
   m_ObjectHideFlags: 0

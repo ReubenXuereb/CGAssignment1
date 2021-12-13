@@ -7,14 +7,9 @@ using Firebase.Extensions;
 
 public class GetImage : MonoBehaviour
 {
-
-
-
     void Start()
     {
-        
         StartCoroutine(loadImages());
-
     }
 
     IEnumerator loadImages()
@@ -23,12 +18,12 @@ public class GetImage : MonoBehaviour
         StorageReference sr = storage.GetReferenceFromUrl("gs://cgassignment1.appspot.com/");
         StorageReference img1 = sr.Child("BlueCircle.png");
         StorageReference img2 = sr.Child("RedSquare.png");
-        StartCoroutine(GetImages(img1));
+        StartCoroutine(GetBlueImage(img1));
         StartCoroutine(GetRedImage(img2));
         yield return new WaitForSeconds(0f);
     }
     
-    IEnumerator GetImages(StorageReference reference)
+    IEnumerator GetBlueImage(StorageReference reference)
     {
         yield return new WaitForSeconds(0f);
         const long maxAllowedSize = 1 * 1024 * 1024;

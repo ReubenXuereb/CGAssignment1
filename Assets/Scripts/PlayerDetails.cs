@@ -10,9 +10,9 @@ public class PlayerDetails
     public Vector2 pos;
     public string dateTimeCreated;
     public string uID;
-    public string score;
+    //public string score;
 
-    public PlayerDetails(string username, string shape, Vector2 pos, string score)
+    public PlayerDetails(string username, string shape, Vector2 pos)
     {
         this.username = username;
         this.shape = shape;
@@ -24,7 +24,7 @@ public class PlayerDetails
         string id = guid.ToString();
         uID = id;
        
-        this.score = score;
+        //this.score = score;
     }
 
     public PlayerDetails(PlayerDetails player)
@@ -34,7 +34,7 @@ public class PlayerDetails
         pos = player.pos;
         dateTimeCreated = player.dateTimeCreated;
         uID = player.uID;
-        score = player.score;
+        //score = player.score;
     }
 
 }
